@@ -2,14 +2,14 @@ import authors from '../data.js'
 
 const initialState = {
   authors: authors,
-  authorId : 5,
+  newAuthorId : 5,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_AUTHOR':
       const newAuthor = {
-        id: state.authorId,
+        id: state.newAuthorId,
         first_name: "Author",
         last_name: "McAuthorFace",
         imageUrl:
@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         authors: state.authors.concat(newAuthor),
-        authorId: state.authorId + 1
+        newAuthorId: state.newAuthorId + 1
       }
     case 'DELETE_AUTHOR':
       console.log(action.payload)
